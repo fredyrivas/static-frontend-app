@@ -1,0 +1,26 @@
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(232, 245, 267, 1);
+    z-index: 9999;
+
+    .preloadImage {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        &-text{
+          // content: "Generando tu gif";
+          text-align: center;
+          color: #019EDC;
+          font-size: 22px;
+          position: relative;
+          left: 21%;
+          bottom: 50px;
+        }
+    }
+}

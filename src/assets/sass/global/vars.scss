@@ -1,0 +1,18 @@
+
+
+$primary-font: 'ATT Aleck Sans';
+$primary-font-black: 'ATT Aleck Sans Black';
+
+
+$iphoneSE: '(max-width: 320px) and (max-width: 480px)';
+$iphoneX: '(min-width: 375px) and (max-width: 667px)';
+$mobile: '(min-width: 320px) and (max-width: 768px)';
+$tablet: '(min-width: 640px) and (max-width: 1024px)';
+$alldevices: '(min-width: 320px) and (max-width: 1024px)';
+$largerDesktop: '(min-width: 1281px) and (max-width: 3000px)';
+$tab:  '(max-width: 940px)';
+@mixin on-device($media) {
+    @media only screen and #{$media} {
+        @content;
+    }
+}

@@ -1,0 +1,11 @@
+header{
+    margin-top: 50px;
+    
+    img{
+        width: 142px;
+
+        @include on-device($mobile){
+            width: 100px;
+        }
+    }
+}
