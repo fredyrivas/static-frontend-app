@@ -1,12 +1,12 @@
 @import "lib/custom";
 @import "~bootstrap/scss/bootstrap";
 
-//@import "~@glidejs/glide/src/assets/sass/glide.core";
-//@import "~@glidejs/glide/src/assets/sass/glide.theme";
 
 @import 'global/fonts';
 @import 'global/vars';
 @import 'global/default';
+@import 'global/utils';
+
 
 @import 'shared/header';
 @import 'shared/preloader';
