@@ -4,23 +4,62 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(232, 245, 267, 1);
+    background-color: white;
     z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    .preloadImage {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 300px;
-        &-text{
-          // content: "Generando tu gif";
-          text-align: center;
-          color: #019EDC;
-          font-size: 22px;
-          position: relative;
-          left: 21%;
-          bottom: 50px;
-        }
-    }
+
+@mixin color($color) {
+  border-color: $color;
+}
+
+.preloader {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  animation: rotation 2.5s infinite normal linear;
+  tranform-origin: 50% 50%;
+
+  &__item {
+    position: absolute;
+    border-style: solid;
+    border: 1px solid transparent;
+    border-radius: 43%; // or 50%
+    border-width: 5px 0 0 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__one {
+    @include color(#D50000);
+    transform: rotate(0);
+  }
+
+  &__two {
+    @include color(#FF1744);
+    transform: rotate(120deg);
+  }
+
+  &__three {
+    @include color(#FF5252);
+    transform: rotate(240deg);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0) scale(1, 1);
+    filter: hue-rotate(-60deg);
+  }
+  60% {
+    transform: rotate(360deg) scale(0.8, 0.8);
+    filter: hue-rotate(10deg);
+  }
+  to {
+    transform: rotate(720deg) scale(1, 1);
+    filter: hue-rotate(-60deg);
+  }
 }
