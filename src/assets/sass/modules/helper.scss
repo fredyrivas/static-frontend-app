@@ -1,0 +1,23 @@
+//////////masonry
+.grid {
+    height: 100%;
+}
+.grid-sizer,
+.item {
+    width: 32%;
+}
+
+.gutter-sizer {
+    width: 2%;
+}
+.item {
+    height: 250px;
+    float: left;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+.item--height2 {
+    height: 500px;
+    margin-bottom: 20px;
+}

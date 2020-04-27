@@ -3,7 +3,7 @@ html {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     height: 100%;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 *,
@@ -15,18 +15,10 @@ html {
 }
 
 body {
-    //height: 100%;
-    //width: 100%;
     font-family: $primary-font;
-    background-color: black;
-    color: white;
     margin: 0;
 }
 
-
-img {
-    max-width: 100%;
-}
 
 
 

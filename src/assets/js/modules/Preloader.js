@@ -1,6 +1,8 @@
+import { TimelineMax } from 'gsap'
+
 const imagesloaded = require('imagesloaded')
 
-class Preloader{
+export default class Preloader{
 
     constructor (options){
         
@@ -10,7 +12,7 @@ class Preloader{
     
 
     init(){
-        imagesloaded('#site', ()=>{
+        imagesloaded('main', ()=>{
             this.onPreloadCompleteInt()
             TweenMax.to('#preloader', .5, {autoAlpha:0});
         })
@@ -29,4 +31,3 @@ class Preloader{
 }
 
 
-export default Preloader;

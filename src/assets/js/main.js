@@ -1,39 +1,33 @@
 window.$ = window.jQuery = require("jquery");
-import { TweenMax } from "gsap";
 
 
 import Preloader from './modules/Preloader.js'
 
 
+const APP = window.APP || {};
 
+const initApp = () => {
+    window.APP = APP
 
-class App {
-    constructor() {
+    let isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        
+    APP.isMobileDevice = isMobileDevice
 
-        this.preloader = new Preloader()
+    APP.Preloader = new Preloader()
 
-        this.isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    APP.Preloader.onPreloadComplete({
+        callback: () => {
+            console.log('site loaded');
+            ///
+        }
+    })
 
-
-        this.init()
-    }
-
-
-    addEvents() {
-
-    }
-
-
-    init() {
-        this.preloader.onPreloadComplete({
-            callback: () => {
-                console.log('site loaded');
-                this.addEvents()
-            }
-        })
-    }
 }
 
-const app = new App()
+if (document.readyState === 'complete' || (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
+    initApp()
+} else {
+    document.addEventListener('DOMContentLoaded', initApp)
+}
+
+
