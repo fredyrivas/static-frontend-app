@@ -13,7 +13,7 @@ export default class Preloader{
 
     init(){
         imagesloaded('main', ()=>{
-            setInterval(()=>{
+            setTimeout(()=>{
                 this.onPreloadCompleteInt()
                 TweenMax.to('#preloader', .5, {delay:.5, autoAlpha:0, onComplete:()=>{
                     $('#preloader').remove()
