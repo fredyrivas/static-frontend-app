@@ -22,7 +22,11 @@ import ScrollTo from 'scroll-animate-to'
 import Swiper from 'swiper';
 
 
-
+//import three
+import * as THREE from 'three'
+import OrbitControls from 'three-orbitcontrols'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Fire } from 'three/examples/jsm/objects/Fire.js';
 
 
 // setupScrollmagic() {
@@ -62,4 +66,11 @@ import Swiper from 'swiper';
 //         .progress((instance, image) => {
 
 //         });
+// }
+
+
+
+//set three orbit controls
+// setControls(){
+//     this.controls = new OrbitControls(this.camera, this.renderer.domElement)
 // }
