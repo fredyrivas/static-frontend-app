@@ -1,4 +1,4 @@
-import { TimelineMax } from 'gsap'
+import gsap from 'gsap';
 
 const imagesloaded = require('imagesloaded')
 
@@ -15,7 +15,7 @@ export default class Preloader{
         imagesloaded('main', ()=>{
             setTimeout(()=>{
                 this.onPreloadCompleteInt()
-                TweenMax.to('#preloader', .5, {delay:.5, autoAlpha:0, onComplete:()=>{
+                gsap.to('#preloader', .5, {delay:.5, autoAlpha:0, onComplete:()=>{
                     $('#preloader').remove()
                 }});
             }, 500)
@@ -23,10 +23,10 @@ export default class Preloader{
     }
 
     showPreloader(){
-        TweenMax.to('#preloader', .5, {autoAlpha:1});
+        gsap.to('#preloader', .5, {autoAlpha:1});
     }
     hidePreloader(){
-        TweenMax.to('#preloader', .5, {autoAlpha:0});
+        gsap.to('#preloader', .5, {autoAlpha:0});
     }
 
     onPreloadComplete(obj){
