@@ -9,17 +9,21 @@ const APP = window.APP || {};
 const initApp = () => {
     window.APP = APP
 
-    let isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    ///custom app events handler
+    APP.emit = (name, events, data) => {
+        let customData = data || null
+        const fireCallbacks = (callback) => { callback(customData); };
+        events[name].forEach(fireCallbacks);
+    }
 
-    APP.isMobileDevice = isMobileDevice
+    //find out if its mobile browser
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    APP.isMobile = isMobile
 
     APP.Preloader = new Preloader()
 
-    APP.Preloader.onPreloadComplete({
-        callback: () => {
-            console.log('site loaded');
-            ///
-        }
+    APP.Preloader.on('complete', ()=>{
+        console.log('site loaded');
     })
 
 }

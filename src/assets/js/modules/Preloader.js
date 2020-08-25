@@ -2,36 +2,37 @@ import gsap from 'gsap';
 
 const imagesloaded = require('imagesloaded')
 
-export default class Preloader{
+export default class Preloader {
 
-    constructor (options){
-        
+    constructor() {
+        this._events = {};
+
         this.init()
-        this.onPreloadCompleteInt = new Function()
     }
-    
 
-    init(){
-        imagesloaded('main', ()=>{
-            setTimeout(()=>{
-                this.onPreloadCompleteInt()
-                gsap.to('#preloader', .5, {delay:.5, autoAlpha:0, onComplete:()=>{
+
+    init() {
+        imagesloaded('main', () => {
+
+            APP.emit('complete', this._events);
+
+            gsap.to('#preloader', .5, {
+                autoAlpha: 0, onComplete: () => {
                     $('#preloader').remove()
-                }});
-            }, 500)
+                }
+            });
         })
     }
 
-    showPreloader(){
-        gsap.to('#preloader', .5, {autoAlpha:1});
-    }
-    hidePreloader(){
-        gsap.to('#preloader', .5, {autoAlpha:0});
-    }
+    on(name, listener) {
+        if (!this._events[name]) {
+            this._events[name] = []
+        }
 
-    onPreloadComplete(obj){
-        this.onPreloadCompleteInt = obj.callback
+        this._events[name].push(listener)
     }
 }
+
+
 
 
