@@ -16,6 +16,12 @@ const initApp = () => {
         events[name].forEach(fireCallbacks);
     }
 
+    APP.random = (min, max) => {
+        if (max == null) { max = min; min = 0; }
+        if (min > max) { var tmp = min; min = max; max = tmp; }
+        return min + (max - min) * Math.random();
+    }
+
     //find out if its mobile browser
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     APP.isMobile = isMobile
