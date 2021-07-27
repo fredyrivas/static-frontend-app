@@ -9,7 +9,9 @@ module.exports = merge(common, {
     optimization: {
         minimizer: [
             new CssnanoPlugin(),
-            new TerserPlugin()
+            new TerserPlugin({
+                extractComments: false
+            })
         ]
     }
 })
